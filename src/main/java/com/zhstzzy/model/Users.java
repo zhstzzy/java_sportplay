@@ -12,7 +12,8 @@ import java.io.Serializable;
  */
 @Data
 @RequiredArgsConstructor
-public class User implements Serializable {
+public class Users implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      * 主键
      */
@@ -37,9 +38,8 @@ public class User implements Serializable {
      * 状态
      */
     private Boolean state;
-    private static final long serialVersionUID = 1L;
 
-    public User(String username, String password, String email, String role, Boolean state) {
+    public Users(String username, String password, String email, String role, Boolean state) {
         this.username = username;
         this.password = password;
         this.email = email;

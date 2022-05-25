@@ -1,10 +1,16 @@
 package com.zhstzzy.model;
 
+import lombok.ToString;
+
+import java.io.Serializable;
+
 /**
  * @Author : zhstzzy
  * @create 2022/4/27 19:03
  */
-public class R {
+@ToString
+public class R implements Serializable {
+    private static final long serialVersionUID = 1L;
     /**
      *标识返回状态
      */

@@ -14,6 +14,7 @@ class JavasportplayApplicationTests {
     @Test
     void contextLoads() {
         System.out.println(dao.findUserByUsernameAndPassword("admin", "123456"));
+
     }
 
 }

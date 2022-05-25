@@ -1,6 +1,5 @@
 package com.zhstzzy.controller;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -15,7 +14,7 @@ public class TestController {
     @PostMapping
     @CrossOrigin
     public String test(){
-        String test = "This is TestController";
+        String test = "";
         System.out.println(test);
         return test;
     }
