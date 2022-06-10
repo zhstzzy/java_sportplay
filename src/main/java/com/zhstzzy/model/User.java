@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @RequiredArgsConstructor
 @TableName("users")
-public class Users implements Serializable {
+public class User implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
      * 主键
@@ -43,7 +43,10 @@ public class Users implements Serializable {
      */
     private Boolean state;
 
-    public Users(String username, String password, String email, String role, Boolean state) {
+    @TableField(exist = false)
+    private String token;
+
+    public User(String username, String password, String email, String role, Boolean state) {
         this.username = username;
         this.password = password;
         this.email = email;

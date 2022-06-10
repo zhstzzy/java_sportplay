@@ -1,6 +1,7 @@
 package com.zhstzzy;
 
-import com.zhstzzy.dao.UserDao;
+import com.zhstzzy.dao.UserMapper;
+import com.zhstzzy.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,12 +10,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 class JavasportplayApplicationTests {
 
     @Autowired
-    private UserDao dao;
+    private UserMapper dao;
+
+    @Autowired
+    private UserService service;
 
     @Test
     void contextLoads() {
-        System.out.println(dao.findUserByUsernameAndPassword("admin", "123456"));
-
     }
 
 }

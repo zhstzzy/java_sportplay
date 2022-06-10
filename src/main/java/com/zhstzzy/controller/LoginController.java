@@ -1,7 +1,7 @@
 package com.zhstzzy.controller;
 
 import com.zhstzzy.model.R;
-import com.zhstzzy.model.Users;
+import com.zhstzzy.model.User;
 import com.zhstzzy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +18,7 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping("/login")
-    public R login(@RequestBody Users user){
+    public R login(@RequestBody User user){
         System.out.println(user);
         R login = userService.login(user);
         return login;

@@ -1,5 +1,6 @@
 package com.zhstzzy.model;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import java.io.Serializable;
  */
 @Data
 @RequiredArgsConstructor
+@TableName("submenu")
 public class SubMenu implements Serializable {
     private static final long serialVersionUID = 1L;
     private Integer id;

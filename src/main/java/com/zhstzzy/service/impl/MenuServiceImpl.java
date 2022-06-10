@@ -1,6 +1,7 @@
 package com.zhstzzy.service.impl;
 
-import com.zhstzzy.dao.MenuDao;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.zhstzzy.dao.MenuMapper;
 import com.zhstzzy.model.MainMenu;
 import com.zhstzzy.model.R;
 import com.zhstzzy.service.MenuService;
@@ -15,20 +16,13 @@ import java.util.List;
  * @create 2022/5/24 8:31
  */
 @Service("menuService")
-public class MenuServiceImpl implements MenuService {
+public class MenuServiceImpl extends ServiceImpl<MenuMapper,MainMenu> implements MenuService {
 
     @Autowired
-    private MenuDao menuDao;
+    private MenuMapper menuMapper;
 
     @Override
-    public R getMenus() {
-        List<MainMenu> menus = menuDao.getMenus();
-        if (menus != null) {
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("menus", menus);
-//        System.out.println(res);
-            return R.ok(res, "查询菜单列表成功!");
-        }
-        return R.error(404,"查询菜单列表失败!");
+    public List<MainMenu> getMenus() {
+        return menuMapper.getMenus();
     }
 }
