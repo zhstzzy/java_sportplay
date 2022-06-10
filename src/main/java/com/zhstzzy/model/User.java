@@ -1,5 +1,7 @@
 package com.zhstzzy.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -12,6 +14,7 @@ import java.io.Serializable;
  */
 @Data
 @RequiredArgsConstructor
+@TableName("users")
 public class Users implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
@@ -25,6 +28,7 @@ public class Users implements Serializable {
     /**
      * 密码
      */
+    @TableField(exist = false)
     private String password;
     /**
      * 邮箱
