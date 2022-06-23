@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhstzzy.mapper.GoodsMapper">
+
+    <resultMap id="BaseResultMap" type="com.zhstzzy.model.Goods">
+            <id property="goodsId" column="goodsId" jdbcType="INTEGER"/>
+            <result property="goodsName" column="goodsName" jdbcType="VARCHAR"/>
+            <result property="unit" column="unit" jdbcType="VARCHAR"/>
+            <result property="unitPrice" column="unitPrice" jdbcType="DOUBLE"/>
+            <result property="sellPrice" column="sellPrice" jdbcType="DOUBLE"/>
+            <result property="inventory" column="inventory" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        goodsId,goodsName,unit,
+        unitPrice,sellPrice,inventory
+    </sql>
+</mapper>

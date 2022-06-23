@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.zhstzzy.dao.MenuMapper">
+<mapper namespace="com.zhstzzy.mapper.MenuMapper">
+
+    <cache eviction="FIFO" flushInterval="60000" size="1024" readOnly="true" />
+
     <resultMap id="menuMap" type="mainMenu">
         <id column="id" property="id"/>
         <result column="title" property="title"/>
@@ -13,10 +16,23 @@
             <result column="sicon" property="icon"/>
         </collection>
     </resultMap>
-    <select id="getMenus" resultMap="menuMap">
+    <select id="getMenus" resultMap="menuMap" parameterType="user">
+        select m.*, s.id sid, s.title stitle, s.path spath, s.icon sicon
+        from mainmenu m,
+             submenu s,
+             users u,
+             user_role ur
+        where m.id = s.mid
+          and u.id = ur.uid
+          and m.id = ur.menuid
+          and u.id = #{id}
+    </select>
+
+    <select id="getAllMenus" resultMap="menuMap">
         select m.*, s.id sid, s.title stitle, s.path spath, s.icon sicon
         from mainmenu m,
              submenu s
-        where m.id = s.mid;
+        where m.id = s.mid
     </select>
+
 </mapper>

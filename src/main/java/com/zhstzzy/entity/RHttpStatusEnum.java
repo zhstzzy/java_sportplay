@@ -1,4 +1,4 @@
-package com.zhstzzy.model;
+package com.zhstzzy.entity;
 
 /**
  * @Author : zhstzzy

@@ -2,6 +2,7 @@ package com.zhstzzy.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.zhstzzy.model.MainMenu;
+import com.zhstzzy.model.User;
 
 import java.util.List;
 
@@ -11,7 +12,10 @@ import java.util.List;
  */
 public interface MenuService extends IService<MainMenu> {
 
-    List<MainMenu> getMenus();
+    List<MainMenu> getMenus(User user);
+    List<MainMenu> getAllMenus();
+
+
 
 
 }

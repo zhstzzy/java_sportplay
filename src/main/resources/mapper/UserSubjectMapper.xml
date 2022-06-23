@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhstzzy.mapper.UserSubjectMapper">
+
+    <resultMap id="BaseResultMap" type="com.zhstzzy.model.UserSubject">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="startTime" column="startTime" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="endTime" jdbcType="TIMESTAMP"/>
+            <result property="subId" column="subId" jdbcType="INTEGER"/>
+            <result property="uid" column="uid" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,startTime,endTime,
+        subId,uid
+    </sql>
+
+    <select id="selectByUid" resultType="com.zhstzzy.entity.UserAndSubject">
+        select * from user_subject us,subject s where us.subId = s.subId and us.uid = #{id}
+    </select>
+</mapper>

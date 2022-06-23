@@ -1,7 +1,6 @@
 package com.zhstzzy;
 
 import org.mybatis.spring.annotation.MapperScan;
-import org.mybatis.spring.annotation.MapperScans;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,11 +9,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @create 2022/4/25 20:40
  */
 @SpringBootApplication
-@MapperScan("com.zhstzzy.dao")
-public class JavasportplayApplication {
+@MapperScan("com.zhstzzy.mapper")
+public class JavaSportPlayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JavasportplayApplication.class, args);
+        SpringApplication.run(JavaSportPlayApplication.class, args);
     }
 
 }

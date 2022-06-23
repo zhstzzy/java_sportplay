@@ -1,4 +1,4 @@
-package com.zhstzzy.model;
+package com.zhstzzy.entity;
 
 import lombok.ToString;
 
@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class R implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
-     *标识返回状态
+     * 标识返回状态
      */
     private Integer code;
 
@@ -25,34 +25,60 @@ public class R implements Serializable {
      */
     private String message;
 
-
     /**
      * 成功返回
-     * @param data
+     *
+     * @param message
      * @return
      */
-    public static R ok(Object data){
-        return new R(RHttpStatusEnum.SUCCESS.getCode(),data,RHttpStatusEnum.SUCCESS.getMessage());
+    public static R ok(String message) {
+        return new R(RHttpStatusEnum.SUCCESS.getCode(), message);
     }
 
     /**
      * 成功返回
+     *
      * @param data
      * @return
      */
-    public static R ok(Object data,String message){
-        return new R(RHttpStatusEnum.SUCCESS.getCode(),data,message);
+    public static R ok(Object data) {
+        return new R(RHttpStatusEnum.SUCCESS.getCode(), data, RHttpStatusEnum.SUCCESS.getMessage());
+    }
+
+    /**
+     * 成功返回
+     *
+     * @param data
+     * @param message
+     * @return
+     */
+    public static R ok(Object data, String message) {
+        return new R(RHttpStatusEnum.SUCCESS.getCode(), data, message);
+    }
+
+    /**
+     * 成功返回
+     *
+     * @param code
+     * @param data
+     * @param message
+     * @return
+     */
+    public static R ok(Integer code,Object data, String message) {
+        return new R(code, data, message);
     }
 
     /**
      * 失败返回
+     *
      * @param rHttpStatusEnum
      * @return
      */
-    public static R error(RHttpStatusEnum rHttpStatusEnum){
-        return new R(rHttpStatusEnum.getCode(),null,rHttpStatusEnum.getMessage());
+    public static R error(RHttpStatusEnum rHttpStatusEnum) {
+        return new R(rHttpStatusEnum.getCode(), null, rHttpStatusEnum.getMessage());
     }
-    public static R error(Integer code,String message){
+
+    public static R error(Integer code, String message) {
         R r = new R();
         r.code(code);
         r.data(null);
@@ -61,9 +87,13 @@ public class R implements Serializable {
     }
 
 
-
     public R() {
 
+    }
+
+    public R(Integer code, String message) {
+        this.code = code;
+        this.message = message;
     }
 
     public R(Integer code, Object data, String message) {

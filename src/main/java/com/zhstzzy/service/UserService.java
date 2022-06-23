@@ -2,7 +2,7 @@ package com.zhstzzy.service;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.zhstzzy.model.R;
+import com.zhstzzy.entity.R;
 import com.zhstzzy.model.User;
 
 /**
@@ -17,4 +17,14 @@ public interface UserService extends IService<User> {
     User selectUserById(Integer id);
 
     User selectUserByUsername(String username);
+
+    Boolean updateState(User user);
+
+    void sendMail(String text,String code,String to);
+
+    Boolean register(User user);
+
+    Boolean updateUser(User user);
+
+    Boolean deleteUser(Integer id);
 }

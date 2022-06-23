@@ -1,12 +1,10 @@
-package com.zhstzzy.dao;
+package com.zhstzzy.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.zhstzzy.model.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
-
-import java.util.List;
 
 /**
  * @Author : zhstzzy
@@ -20,6 +18,6 @@ public interface UserMapper extends BaseMapper<User> {
 
 //    List<User> getAllUser(@Param("username") String username, @Param("pageStart") int pageStart, @Param("pageSize")int pageSize);
 
-
+    int insertUser(User user);
 
 }
